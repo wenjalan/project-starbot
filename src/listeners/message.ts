@@ -1,5 +1,7 @@
 import { Message } from 'discord.js';
-const config = require('../config.json');
+import redeploySlashCommands from '../commands/deploy';
+
+const config = require('../../config.json');
 
 export default async function onMessage(msg: Message) {
     // skip bot messages
@@ -12,14 +14,13 @@ export default async function onMessage(msg: Message) {
         // if message was sent from an admin
         if (config.admin.includes(msg.author.id)) {
             let query = msg.content.toLowerCase();
-
             // commands
             if (query.startsWith('commands ')) {
                 query = query.substring('commands '.length);
-                
                 // redeploys global commands
                 if (query.startsWith('redeploy')) {
-                    // TODO: Redeploy global slash commands here
+                    await msg.channel.send('Redeploying slash commands...');
+                    redeploySlashCommands();
                 }
             }
         }

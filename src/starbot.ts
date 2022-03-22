@@ -1,5 +1,5 @@
 import {Client, Intents} from 'discord.js';
-import onMessage from './message';
+import onMessage from './listeners/message';
 const token = process.env.DISCORD_RIN_TOKEN;
 
 const starbot = new Client({
