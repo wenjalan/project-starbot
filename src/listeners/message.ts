@@ -19,8 +19,12 @@ export default async function onMessage(msg: Message) {
                 query = query.substring('commands '.length);
                 // redeploys global commands
                 if (query.startsWith('redeploy')) {
-                    await msg.channel.send('Redeploying slash commands...');
-                    redeploySlashCommands();
+                    try {
+                        redeploySlashCommands();
+                        await msg.channel.send('Redeployed slash commands');
+                    } catch (err: any) {
+                        await msg.channel.send('Encountered an error: ' + err.message);
+                    }
                 }
             }
         }

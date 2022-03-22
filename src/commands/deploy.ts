@@ -14,16 +14,10 @@ commands.push(
 );
 
 // deploys commands
-export default function redeploy() {
+export default async function redeploy() {
     // deploys commands
     const rest = new REST({ version: '9' }).setToken(token);
-    rest.put(Routes.applicationCommands(config.clientId), {
+    await rest.put(Routes.applicationCommands(config.clientId), {
         body: commands.map(command => command.toJSON())
-    })
-    .then(() => {
-        console.log('Redeployed slash commands');
-    })
-    .catch((err) => {
-        console.error('Encountered an error redeploying commands: ' + err.message);
-    }); 
+    });
 }
