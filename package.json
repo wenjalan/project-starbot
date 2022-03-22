@@ -1,0 +1,21 @@
+{
+  "name": "starbot",
+  "version": "1.0.0",
+  "description": "A sassy chatbot named Starbot.",
+  "main": "starbot.js",
+  "scripts": {
+    "start": "npx ts-node src/starbot.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alan Wen",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.22",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  }
+}
